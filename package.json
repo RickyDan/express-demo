@@ -1,0 +1,24 @@
+{
+  "name": "express-demo",
+  "version": "1.0.0",
+  "description": "an express application ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "keywords": [
+    "express",
+    "ava"
+  ],
+  "author": "RickyDan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.3",
+    "moment": "^2.17.1",
+    "react": "^15.4.2",
+    "react-router": "^3.0.2"
+  }
+}
