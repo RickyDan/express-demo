@@ -4,7 +4,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, '../src/main.js')   
+    app: path.resolve(__dirname, '../src/main.js'),
+    vendors: [
+      'react',
+      'react-dom'
+    ]
   },
   // 输出配置
   output: {
@@ -20,12 +24,5 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: '../index.html',
-      template: path.resolve(__dirname, '../index.html'),
-      inject: true
-    })
-  ]
+  }
 }

@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var FriendlyErrors = require('friendly-errors-webpack-plugin');
 var webpack = require('webpack');
 var path = require('path');
 
@@ -13,10 +14,14 @@ config.plugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: path.resolve(__dirname, '../index.html'),
+    template: 'index.html',
     inject: true
-  })
+  }),
+  new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendors.js' }),
+  new FriendlyErrors()
 ];
+
+config.devtool = '#eval-source-map';
 
 // 动态向入口配置中注入 webpack-hot-middleware/client
 var devClient = './build/dev-client';
