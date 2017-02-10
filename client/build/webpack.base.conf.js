@@ -17,11 +17,24 @@ module.exports = {
     filename: '[name].[hash].js',
     chunkFilename: '[id].[chunkhash].js'
   }, 
-  module: {
-    loaders: [
-      { test: /\.(js|jsx)$/, loader: 'babel-loader', exclude: /node_modules/ },      
+  module: {       
+    rules: [
+      {
+        test: /\.(js|jsx)$/,    
+        enforce: "pre",
+        loader: "eslint-loader",
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(js|jsx)$/,        
+        use: ["babel-loader"],
+        exclude: /node_modules/
+      }  
     ]
   },
+  // eslint: {
+  //   formatter: require('eslint-friendly-formatter')
+  // },
   resolve: {
     extensions: ['.js', '.jsx']
   }
