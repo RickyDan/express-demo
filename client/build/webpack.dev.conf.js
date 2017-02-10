@@ -1,7 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var FriendlyErrors = require('friendly-errors-webpack-plugin');
 var StyleLintPlugin = require('stylelint-webpack-plugin');
-var styleLintOptions = require('../.stylelintrc');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var webpack = require('webpack');
 var path = require('path');
 
@@ -14,7 +14,24 @@ config.plugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
-  new StyleLintPlugin(styleLintOptions),
+  new StyleLintPlugin({
+    config: {
+      "extends": "stylelint-config-standard"
+    },
+    // 正则匹配想要lint监测的文件
+    files: "src/style/*.css",
+    rules: {
+      "block-no-empty": null,
+      "color-no-invalid-hex": true,
+      "comment-empty-lint-before": [ "always", {
+        "ignore": ["stylelint-command", "after-command"]
+      }],
+      "inedntation": ["tab", {
+        "except": ["value"]
+      }]
+    }
+  }),
+  new BundleAnalyzerPlugin(),
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: 'index.html',

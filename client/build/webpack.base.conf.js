@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,        
-        use: ["babel-loader"],
+        use: ["babel-loader?cacheDirectory"],
         exclude: /node_modules/
       },
       {
