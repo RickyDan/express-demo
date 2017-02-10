@@ -1,0 +1,9 @@
+$blue: #4b9;
+h1 {
+  @if 3 > 5 {
+    color: #6cf;
+  }
+  @else {
+    color: $blue;
+  }
+}

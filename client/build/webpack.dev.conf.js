@@ -1,5 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var FriendlyErrors = require('friendly-errors-webpack-plugin');
+var StyleLintPlugin = require('stylelint-webpack-plugin');
+var styleLintOptions = require('../.stylelintrc');
 var webpack = require('webpack');
 var path = require('path');
 
@@ -12,6 +14,7 @@ config.plugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
+  new StyleLintPlugin(styleLintOptions),
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: 'index.html',
