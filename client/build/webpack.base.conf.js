@@ -6,7 +6,9 @@ module.exports = {
     app: path.resolve(__dirname, '../src/main.js'),
     vendors: [
       'react',
-      'react-dom'
+      'react-dom',
+      'react-redux',
+      'redux'
     ]
   },
   // 输出配置

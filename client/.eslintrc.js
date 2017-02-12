@@ -20,7 +20,8 @@ module.exports = {
   ],
   "rules": {
     "semi": "error",
-    "no-unused-vars": 0
+    "no-unused-vars": 0,
+    "no-unused-expressions": 1
   },
   "settings": {
     "react": {

@@ -1,7 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var FriendlyErrors = require('friendly-errors-webpack-plugin');
 var StyleLintPlugin = require('stylelint-webpack-plugin');
-var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var webpack = require('webpack');
 var path = require('path');
 
@@ -30,8 +29,7 @@ config.plugins = [
         "except": ["value"]
       }]
     }
-  }),
-  new BundleAnalyzerPlugin(),
+  }),  
   new HtmlWebpackPlugin({
     filename: 'index.html',
     template: 'index.html',
